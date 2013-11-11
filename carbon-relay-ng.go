@@ -29,9 +29,9 @@ var (
 	listenAddr = flag.String("l", "0.0.0.0:2003", "listen address")
 )
 
-func accept(l *net.TCPListener, routes []route) {
+func accept(l *net.Listener, routes []route) {
 	for {
-		c, err := l.AcceptTCP()
+		c, err := l.Accept()
 		if nil != err {
 			log.Println(err)
 			break
